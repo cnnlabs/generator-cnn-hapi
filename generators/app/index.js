@@ -2,20 +2,28 @@
 
 const generators = require('yeoman-generator');
 
-/*
- * Running context order reference:
- *
- *     initializing
- *     prompting
- *     configuring
- *     default
- *     writing
- *     conflicts
- *     install
- *     end
- *
- * More details at http://yeoman.io/authoring/running-context.html
- */
 module.exports = generators.Base.extend({
-    // put code here
+    initializing: {
+        base: function () {
+            this.composeWith('cnn-base:app');
+        }
+    },
+
+    writing: {
+        copyFiles: function () {
+            this.fs.copy(this.templatePath('./'), this.destinationPath('./'));
+        }
+    },
+
+    install: {
+        npmInstall: function () {
+            this.npmInstall(['cnn-hapi'], {save: true});
+        }
+    },
+
+    end: {
+        message: function () {
+            this.log('Finished generating cnn-hapi');
+        }
+    }
 });
