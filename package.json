@@ -12,7 +12,9 @@
     "generate-docs": "rm -rf docs && esdoc -c .esdoc.json",
     "test": "eslint *.js .*.js **/*.js **/.*.js && test/validate-json-files.sh",
     "update-apply": "ncu -u",
-    "update-check": "ncu"
+    "update-check": "ncu",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,8 @@
   },
   "dependencies": {
     "generator-cnn-base": "0.3.0",
-    "yeoman-generator": "0.22.5"
+    "yeoman-generator": "0.22.5",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "changelog-maker": "2.2.0",
@@ -45,5 +48,6 @@
   ],
   "bugs": {
     "url": "https://github.com/cnnlabs/generator-cnn-hapi/issues"
-  }
+  },
+  "snyk": true
 }
