@@ -23,8 +23,8 @@
     "node": ">=5.6.0"
   },
   "dependencies": {
-    "generator-cnn-base": "0.3.0",
-    "yeoman-generator": "0.22.5"
+    "generator-cnn-base": "0.5.0",
+    "yeoman-generator": "0.23.0"
   },
   "devDependencies": {
     "changelog-maker": "2.2.0",
